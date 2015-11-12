@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Calendar</title>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"> </script>
+
+</head>
+<body>
+  <script>
+
+$(function(){      //enclose all code in this function 
+
+    var days = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]; 
+    var month= "November"; 
+    var dateselected=""; 
+    var dates30= ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30'];
+    //array above to be used to assign numbers to cell values, and initial object keys for storage.
+
+  // create the Opening Page
+
+    $divtop= $('<div></div>').addClass("overallpage");
+    $headx =$('<p></p>').addClass("calMonth").text("November 2015"); 
+    $divtop.append($headx);
+    $('body').append($divtop);
+
+  //var table1 = $('div').add("table").attr("id","grid");  //or
+    var table1=document.createElement("table");  
+     table1.setAttribute("id","grid");
+
+    console.log("table1 is now..", table1);
+
+    var row1  = table1.insertRow(0);
+    row1.setAttribute("class","rowformat");
+    var row2  = table1.insertRow(1);
+    row1.setAttribute("class","rowformat");
+   var row3  = table1.insertRow(2);
+   row1.setAttribute("class","rowformat");
+    var row4  = table1.insertRow(3);
+    row1.setAttribute("class","rowformat");
+    var row5  = table1.insertRow(4);
+    row1.setAttribute("class","rowformat");
+   var row6  = table1.insertRow(5);
+   row1.setAttribute("class","rowformat");
+    var row7 = table1.insertRow(6);
+    row1.setAttribute("class","rowformat");
+    var row8 = table1.insertRow(7);
+    row1.setAttribute("class","rowformat");
+    
+    console.log("table1 is now..", table1);
+    document.body.appendChild(table1);
+//$('#grid').insertRow(0).addClass("rowformat");
+//$('#grid').insertRow(1).addClass("rowformat");
+//$('#grid').insertRow(2).addClass("rowformat");
+//$('#grid').insertRow(3).addClass("rowformat");
+//$('#grid').insertRow(4).addClass("rowformat");
+//$('#grid').insertRow(5).addClass("rowformat");
+//$('#grid').insertRow(6).addClass("rowformat");
+//$('#grid').insertRow(7).addClass("rowformat");
+//day header cells
+
+    var cell1 = row1.insertCell(0);
+    cell1.setAttribute("class","colformat");
+    var cell2 = row1.insertCell(1);
+    cell2.setAttribute("class","colformat");
+    var cell3 = row1.insertCell(2);
+    cell3.setAttribute("class","colformat");
+    var cell4 = row1.insertCell(3);
+    cell4.setAttribute("class","colformat");
+    var cell5 = row1.insertCell(4);
+    cell5.setAttribute("class","colformat");
+    var cell6 = row1.insertCell(5);
+    cell6.setAttribute("class","colformat");
+    var cell7 = row1.insertCell(6);
+    cell7.setAttribute("class","colformat");
+   
+//month cells
+    var cell8 = row2.insertCell(0);
+    cell8.setAttribute("class","inactive");
+    var cell9 = row2.insertCell(1);
+    cell9.setAttribute("class","inactive");
+    var cell10 = row2.insertCell(2);
+    cell10.setAttribute("class","inactive");
+    var cell11 = row2.insertCell(3);
+    cell11.setAttribute("class","inactive");
+    var cell12 = row2.insertCell(4);
+    cell12.setAttribute("class","inactive");
+    var cell13 = row2.insertCell(5);
+    cell13.setAttribute("class","inactive");
+    var cell14 = row2.insertCell(6);
+    cell14.setAttribute("class","cellformat");
+    cell14.setAttribute("ID","1");
+    var cell15 = row3.insertCell(0);
+    cell15.setAttribute("class","cellformat");
+    cell15.setAttribute("ID","2");
+    var cell16 = row3.insertCell(1);
+    cell16.setAttribute("class","cellformat");
+    cell16.setAttribute("ID","3");
+    var cell17 = row3.insertCell(2);
+    cell17.setAttribute("class","cellformat");
+    cell17.setAttribute("ID","4");
+    var cell18 = row3.insertCell(3);
+    cell18.setAttribute("class","cellformat");
+    cell18.setAttribute("ID","5");
+    var cell19 = row3.insertCell(4);
+    cell19.setAttribute("class","cellformat");
+    cell19.setAttribute("ID","6");
+    var cell20 = row3.insertCell(5);
+    cell20.setAttribute("class","cellformat");
+    cell20.setAttribute("ID","7");
+    var cell21 = row3.insertCell(6);
+    cell21.setAttribute("class","cellformat");
+    cell21.setAttribute("ID","8");
+    var cell22 = row4.insertCell(0);
+    cell22.setAttribute("class","cellformat");
+    cell22.setAttribute("ID","9");
+    var cell23 = row4.insertCell(1);
+    cell23.setAttribute("class","cellformat");
+    cell23.setAttribute("ID","10");
+    var cell24 = row4.insertCell(2);
+    cell24.setAttribute("class","cellformat");
+    cell24.setAttribute("ID","11");
+    var cell25 = row4.insertCell(3);
+    cell25.setAttribute("class","cellformat");
+    cell25.setAttribute("ID","12");
+    var cell26 = row4.insertCell(4);
+    cell26.setAttribute("class","cellformat");
+    cell26.setAttribute("ID","13");
+    var cell27 = row4.insertCell(5);
+    cell27.setAttribute("class","cellformat");
+    cell27.setAttribute("ID","14");
+    var cell28 = row4.insertCell(6);
+    cell28.setAttribute("class","cellformat");
+    cell28.setAttribute("ID","15");
+    var cell29 = row5.insertCell(0);
+    cell29.setAttribute("class","cellformat");
+    cell29.setAttribute("ID","16");
+    var cell30 = row5.insertCell(1);
+    cell30.setAttribute("class","cellformat");
+    cell30.setAttribute("ID","17");
+    var cell31 = row5.insertCell(2);
+    cell31.setAttribute("class","cellformat");
+    cell31.setAttribute("ID","18");
+    var cell32 = row5.insertCell(3);
+    cell32.setAttribute("class","cellformat");
+    cell32.setAttribute("ID","19");
+    var cell33 = row5.insertCell(4);
+    cell33.setAttribute("class","cellformat");
+    cell33.setAttribute("ID","20");
+    var cell34 = row5.insertCell(5);
+    cell34.setAttribute("class","cellformat");
+    cell34.setAttribute("ID","21");
+    var cell35 = row5.insertCell(6);
+    cell35.setAttribute("class","cellformat");
+    cell35.setAttribute("ID","22");
+    var cell36 = row6.insertCell(0);
+    cell36.setAttribute("class","cellformat");
+    cell36.setAttribute("ID","23");
+    var cell37 = row6.insertCell(1);
+    cell37.setAttribute("class","cellformat");
+    cell37.setAttribute("ID","24");
+    var cell38 = row6.insertCell(2);
+    cell38.setAttribute("class","cellformat");
+    cell38.setAttribute("ID","25");
+    var cell39 = row6.insertCell(3);
+    cell39.setAttribute("class","cellformat");
+    cell39.setAttribute("ID","26");
+    var cell40 = row6.insertCell(4);
+    cell40.setAttribute("class","cellformat");
+    cell40.setAttribute("ID","27");
+    var cell41 = row6.insertCell(5);
+    cell41.setAttribute("class","cellformat");
+    cell41.setAttribute("ID","28");
+    var cell42 = row6.insertCell(6);
+    cell42.setAttribute("class","cellformat");
+    cell42.setAttribute("ID","29");
+    var cell43 = row7.insertCell(0);
+    cell43.setAttribute("class","cellformat");
+    cell43.setAttribute("ID","30");
+    var cell44 = row7.insertCell(1);
+    cell44.setAttribute("class","inactive");
+    cell44.setAttribute("ID","31");
+    var cell45 = row7.insertCell(2);
+    cell45.setAttribute("class","inactive");
+    cell45.setAttribute("ID","32");
+    var cell46 = row7.insertCell(3);
+    cell46.setAttribute("class","inactive");
+    var cell47 = row7.insertCell(4);
+    cell47.setAttribute("class","inactive");
+    var cell48 = row7.insertCell(5);
+    cell48.setAttribute("class","inactive");
+    var cell49 = row7.insertCell(6);
+    cell49.setAttribute("class","inactive");
+    
+    cell1.innerHTML = days[0];
+    cell2.innerHTML = days[1];  
+    cell3.innerHTML = days[2];  
+    cell4.innerHTML = days[3]; 
+    cell5.innerHTML = days[4]; 
+    cell6.innerHTML = days[5]; 
+    cell7.innerHTML = days[6]; 
+
+    cell14.innerHTML = "1";
+    cell15.innerHTML = "2";
+    cell16.innerHTML = "3";  
+    cell17.innerHTML = "4";  
+    cell18.innerHTML = "5";
+    cell19.innerHTML = "6";
+    cell20.innerHTML = "7";
+    cell21.innerHTML = "8";
+    cell22.innerHTML = "9";
+    cell23.innerHTML = "10";  
+    cell24.innerHTML = "11";  
+    cell25.innerHTML = "12";
+    cell26.innerHTML = "13";
+    cell27.innerHTML = "14";
+    cell28.innerHTML = "15";
+    cell29.innerHTML = "16";
+    cell30.innerHTML = "17";  
+    cell31.innerHTML = "18";  
+    cell32.innerHTML = "19";
+    cell33.innerHTML = "20";
+    cell34.innerHTML = "21";
+    cell35.innerHTML = "22";
+    cell36.innerHTML = "23";
+    cell37.innerHTML = "24";  
+    cell38.innerHTML = "25";  
+    cell39.innerHTML = "26";
+    cell40.innerHTML = "27";
+    cell41.innerHTML = "28";
+    cell42.innerHTML = "29";
+    cell43.innerHTML = "30";
+  
+    //CREATE THE FORMS
+    //***  FORM 1
+    $formdiv=$('<div></div>');  // 
+    $formdiv.addClass("hidden").attr("ID","entireDiv");
+    $taskform = $('<form></form>'); 
+    $taskform.attr("id","taskform");
+    $textfield=$('<textarea></textarea>');
+    $textfield.attr("id","taskWords").addClass("textbox").attr("name","textfieldname");
+    $formheader=$("<p></p>").addClass("headtext");  //
+    $submitfield=$('<button>SAVE</button>'); 
+    $submitfield.attr("type","button").attr("id","submitbutton");
+    $cancelfield=$('<button>CANCEL</button>'); 
+    $cancelfield.attr("type","button").attr("id","cancelbutton");
+    $space=$('<br></br>');
+ 
+    $taskform.append($formheader).append($textfield);
+    $taskform.append($space).append($submitfield).append($cancelfield);;
+    $formdiv.append($taskform);
+    $('body').append($formdiv);
+ 
+ //** Second Form
+    $secondformdiv=$('<div></div>').addClass("hidden").attr("id","secondDiv");
+    $secondtaskform=$('<form></form>').attr("ID","seconformpage");
+    $secondformheader=$('<p></p>').addClass("headtext2").attr("ID","headtext2");
+    $secondtextfield=$('<p></p>').addClass("oldtext").attr("ID","oldtextId");
+    $closefield=$('<button>CLOSE</button>'). attr("ID","closebutton");   
+    $editfield=$('<button>EDIT</button>').attr("ID","editbutton");      
+    $removefield=$('<button>REMOVE</button>').attr("id","removebutton");  
+    $linebr=$('<br></br>');  
+
+    $secondtaskform.append($secondformheader).append($linebr).append($linebr).append($secondtextfield).append($linebr).append($closefield).append($editfield).append($removefield);  
+    $secondformdiv.append($secondtaskform); 
+    $('body').append($secondformdiv); 
+
+
+//find the date today
+    var today = new Date().getDate();
+    var alldates = document.getElementsByClassName("cellformat");
+    for (var i=0; i < alldates.length;i++){
+        if (alldates[i].innerHTML == today){
+          var selecteddate = alldates[i];
+          selecteddate.setAttribute("class","todaysdate");
+      }
+    }
+  
+//initialise storage object
+  var taskEntries={};
+  for (var x=0;x<31;x++){
+      taskEntries[x]="";}
+
+$( "#grid" ).click(function(){
+            dateselected=event.target.textContent;
+      //  if ($('event.target').hasClass('cellformat')){
+        //check if date has no entry in object choose form1 else form 2
+        console.log("got that click");
+            if (taskEntries[dateselected] === ""){
+              $formdiv.addClass("visible").removeClass("hidden");  //show the right form
+              $('p.headtext').text([dateselected]+" November 2015");      
+         //     $('#dateselected').addClass("shaded");   //check this row//
+              }
+            else {
+        //make second form visible
+             $('#secondDiv').removeClass("hidden").addClass("visible");
+             $('#headtext2').text([dateselected]+" November 2015");
+             $('#oldtextId').text(taskEntries[dateselected]);   //put text in from the object taskEntries
+            } 
+     //   }
+  });      
+
+  //****SAVE/SUBMIT BUTTON
+$('#submitbutton').click(function(){
+    event.preventDefault(); 
+   event.stopPropagation();
+        var textEntered=$('textarea').val(); 
+        
+        taskEntries[dateselected]=textEntered;
+        console.log("And the storage array is",taskEntries);
+    
+        if (textEntered===""){
+          alert('Hey, enter something before you save - or press Cancel');   
+        }
+        if (taskEntries[dateselected] !== "") {       // if there is an entry, change shading.
+            $('#'+ dateselected).css("background-color", "aqua");
+        }  
+        $('#taskWords').val('');           //empty the textbox  
+        dateselected="";              // change the dateselected back to nothing
+       $('#entireDiv').addClass("hidden").removeClass("visible");    //hide form
+      });  
+
+//***** CANCEL BUTTON
+$( "#cancelbutton" ).click(function(){
+    event.preventDefault(); 
+    event.stopPropagation();   
+    
+    $('#taskWords').val('');                           //empty the textfield                         
+    $('#entireDiv').addClass("hidden").removeClass("visible"); // hide the form                          
+    $('#'+ dateselected).css("background-color", "white");    //return the highlighting off  
+    dateselected="";       //reset the date selected
+  });    
+
+//** FORM2 BUTTON CLOSE
+$( "#closebutton" ).click(function(){
+    event.preventDefault(); 
+    event.stopPropagation();
+    //cancel form = delete text, turn to hidden, and empty textbox
+        taskEntries.dateselected="";  
+        $('#secondDiv').addClass("hidden").removeClass("visible"); 
+        $('#'+ dateselected).css("background-color", "aqua");
+        dateselected="";
+  });    
+
+//*****  FORM2 EDIT BUTTON
+    $( "#editbutton" ).click(function(){
+    event.preventDefault();
+    event.stopPropagation();   
+    $('#entireDiv').addClass("visible").removeClass("hidden"); 
+    $('#secondDiv').addClass("hidden").removeClass("visible"); 
+                      
+    $('p.headtext').text([dateselected]+" November 2015");   //assign date to header of the 1st form.
+    var existing =taskEntries[dateselected];
+    console.log("existing is....",existing); 
+  }); 
+
+//**** ReMOVE BUTTON
+$( "#removebutton" ).click(function(){
+    event.preventDefault(); 
+    event.stopPropagation();
+     console.log("Date selected is now:",dateselected);
+     $('#'+ dateselected).css("background-color", "white");   //remove shading on main form  
+     taskEntries[dateselected]="";                     // change the current date entry to empty string
+     $('#secondDiv').addClass("hidden").removeClass("visible");    //change form 2 to be hidden.
+  });       
+ 
+});
+
+  </script>
+</body>
+</html>
